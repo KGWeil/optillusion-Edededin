@@ -30,6 +30,7 @@ public class wellen3z extends PApplet
     public void setup()
     {
         background(255,240,98);
+        drawbLine();
 
     }
 int s = 100;
@@ -42,22 +43,34 @@ int s = 100;
     @Override
     public void draw()
     {
-        drawSquare(0, 0, 100, 25, true);
+        
         
     }
     
+    public void drawbLine() {
+    drawSquare(0, 0, 100, 25, true);
+    for (int i=0;i<7;i++){
+        drawSquare(200*i, 0, 100, 25, false);
+        drawSquare(100+200*i, 0, 100, 25, true);
+    }
+    }
     
-         public void drawSquare(int x, int y, int s, int d, boolean black){
+        public void drawSquare(int x, int y, int s, int d, boolean black){
     fill(black ? 0 : 255);
     square(25 + x, 25+ y, s);
     
     int [] xc = new int[]{x+ 35, x+ 90};
-    int rxc = xc[round(random(1, 4))];
-    int [] yc = new int[]{y+ 25, y+90};
-    int ryc = yc[round(random(1, 4))]; 
+    int rxc = xc[round(random(0, 1))];
+    int [] yc = new int[]{y+35, y+90};
+    int ryc = yc[round(random(0, 1))]; 
+    int rxct = xc[round(random(0, 1))];
+    int ryct = yc[round(random(0, 1))];  
     
     fill (black ? 255 : 0); 
     square(rxc, ryc, d);
+    
+    fill (black ? 255 : 0); 
+    square(rxct, ryct, d);
     
    }
 
