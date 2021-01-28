@@ -29,14 +29,19 @@ public class wellen2 extends PApplet
     @Override
     public void setup()
     {
+        fill(255, 255, 255);
+        square(0, 0, 1400);
         zeichneQuadrat(50, 50, true, false);
+        
 
     }
     int s = 100;
     public void zeichneQuadrat(int x, int y, boolean randGrün, boolean innenGrün)
     {
-        fill (randGrün ? 0 : 255, 255, randGrün ? 0 : 255);
+        fill (randGrün ? 0 : 255, randGrün ? 145 : 255, randGrün ? 53 : 255);
         square(x, y, s);
+        fill(innenGrün ? 0 : 255, innenGrün ? 145 : 255, innenGrün ? 53 : 255);
+        square(x+10, y+10, 80); 
     }
 
     /**
