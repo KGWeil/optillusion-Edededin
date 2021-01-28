@@ -3,13 +3,13 @@ import processing.core.PApplet;
 import processing.core.PFont;
 
 /**
- * Klasse wellen2.
+ * Klasse wellen3z.
  * Beschreibung: 
  *
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class wellen2 extends PApplet
+public class wellen3z extends PApplet
 {       
     /**
      * settings() Methode 
@@ -18,7 +18,7 @@ public class wellen2 extends PApplet
     @Override
     public void settings()
     {
-        size(1400,1400);
+        size(1550, 1550);
     }        
 
     /**
@@ -29,23 +29,11 @@ public class wellen2 extends PApplet
     @Override
     public void setup()
     {
-        fill(255, 255, 255);
-        square(0, 0, 1400);
-        zeichneQuadrat(50, 50, true, false);
-        
+        background(255,240,98);
 
     }
-    int s = 100;
-    public void zeichneQuadrat(int x, int y, boolean randGrün, boolean innenGrün)
-    {
-        fill (randGrün ? 0 : 255, randGrün ? 145 : 255, randGrün ? 53 : 255);
-        square(x, y, s);
-        fill(innenGrün ? 0 : 255, innenGrün ? 145 : 255, innenGrün ? 53 : 255);
-        square(x+10, y+10, 80); 
-    }
-    
-
-
+int s = 100;
+    int d = 25;
     /**
      * Die draw() Methode wird nach der setup() Methode aufgerufen
      * und führt den Code innerhalb ihres Blocks fortlaufend aus,
@@ -54,15 +42,32 @@ public class wellen2 extends PApplet
     @Override
     public void draw()
     {
-
+        drawSquare(0, 0, 100, 25, true);
+        
     }
+    
+    
+         public void drawSquare(int x, int y, int s, int d, boolean black){
+    fill(black ? 0 : 255);
+    square(25 + x, 25+ y, s);
+    
+    int [] xc = new int[]{x+ 35, x+ 90};
+    int rxc = xc[round(random(1, 4))];
+    int [] yc = new int[]{y+ 25, y+90};
+    int ryc = yc[round(random(1, 4))]; 
+    
+    fill (black ? 255 : 0); 
+    square(rxc, ryc, d);
+    
+   }
 
+    
     /**
      * Mit der main()-Methode wird das Programm gestartet.
      *
      */    
     public static void main(String _args[]){ 
-        PApplet.main(new String[] {wellen2.class.getName() });
+        PApplet.main(new String[] {wellen3z.class.getName() });
     }
 
 }
